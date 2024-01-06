@@ -1,7 +1,7 @@
-package br.com.localizaPets.mocks;
+package br.com.localizapets.mocks;
 
-import br.com.localizaPets.domain.LocalizacaoData;
-import br.com.localizaPets.domain.response.LocalizacaoResponse;
+import br.com.localizapets.usecase.domain.LocationPetData;
+import br.com.localizapets.usecase.domain.response.LocationPetResponse;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
@@ -9,24 +9,24 @@ import java.util.List;
 
 public class LocationMock {
 
-    public static LocalizacaoData getLocationResponse(){
-        LocalizacaoData localizacaoData = new LocalizacaoData();
-        LocalizacaoResponse localizacaoResponse = new LocalizacaoResponse();
-        List<LocalizacaoResponse> response = new ArrayList<>();
-        localizacaoResponse.setCountry("Brazil");
-        localizacaoResponse.setCounty("Sao Paulo");
-        localizacaoResponse.setRegion("Sao Paulo");
-        localizacaoResponse.setNeighbourhood("Consolação");
-        localizacaoResponse.setName("Avenida Barata Ribeiro 339");
-        response.add(localizacaoResponse);
+    public static LocationPetData getLocationResponse(){
+        LocationPetData localizacaoData = new LocationPetData();
+        LocationPetResponse locationPetResponse = new LocationPetResponse();
+        List<LocationPetResponse> response = new ArrayList<>();
+        locationPetResponse.setCountry("Brazil");
+        locationPetResponse.setCounty("Sao Paulo");
+        locationPetResponse.setRegion("Sao Paulo");
+        locationPetResponse.setNeighbourhood("Consolação");
+        locationPetResponse.setName("Avenida Barata Ribeiro 339");
+        response.add(locationPetResponse);
         localizacaoData.setData(response);
         return localizacaoData;
     }
 
-    public static LocalizacaoData getErrorLat(){
-        LocalizacaoData localizacaoData = new LocalizacaoData();
-        localizacaoData.setCodigo(HttpStatus.UNPROCESSABLE_ENTITY);
-        localizacaoData.setMensagem("Campo Latitude ou Longitude está incorreto");
+    public static LocationPetData getErrorLat(){
+        LocationPetData localizacaoData = new LocationPetData();
+        localizacaoData.setCode(HttpStatus.UNPROCESSABLE_ENTITY);
+        localizacaoData.setMessage("Campo Latitude ou Longitude está incorreto");
         return localizacaoData;
     }
 
