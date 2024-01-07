@@ -4,6 +4,7 @@ import br.com.localizapets.entrypoint.controller.exceptions.enums.UrlErrorEnum;
 import br.com.localizapets.exceptions.*;
 import br.com.localizapets.usecase.domain.response.ErrorModelResponse;
 import org.apache.coyote.BadRequestException;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -52,7 +53,7 @@ public class HandlerControllerAdviceException extends ResponseEntityExceptionHan
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.BAD_REQUEST.value()))
                 .build();
-
+        Logger logger=
         return new ResponseEntity<>(errorModelResponse, HttpStatus.BAD_REQUEST);
     }
 

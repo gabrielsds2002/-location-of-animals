@@ -1,6 +1,9 @@
 package br.com.localizapets.config.security;
 
+
+import br.com.localizapets.config.LoggerInterceptor;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 public class WebConfig implements WebMvcConfigurer {
@@ -12,4 +15,12 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .allowedOrigins("*");
     }
+
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoggerInterceptor());
+    }
+
+
 }
