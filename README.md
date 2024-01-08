@@ -7,7 +7,8 @@
 
 Aplicação para a consulta de locais de pets desaparecidos.
 
-A aplicação consome a api do positionstack e com isso obtemos a localização apartir da latitude e longitude
+A aplicação consome uma API do positionstack e com isso obtemos a localização apartir da latitude e longitude com isso temos acesso ao local que o pet se encontra.
+
 
 | |  |
 |----------|----------|
@@ -31,13 +32,16 @@ A aplicação consome a api do positionstack e com isso obtemos a localização 
 
 Para rodar essa aplicação é necessario ter intalado na sua maquina o java 17 e o maven.
 
-Para rodar a aplicação é necessario gerar o proprio acesskey nessa url: https://positionstack.com/documentation adicionar o valor no application.properties o valor da variavel api.acesskey.
+Em caso do retorno da aplicação ser 401 é necessario gerar o proprio acesskey nessa url: https://positionstack.com/documentation adicionar o valor no application.properties o valor da variavel acesskey.api.reverse .
+
 
 ## 4. Rotas
 | Ambiente | Endpoint |
 |----------|----------|
 | Local | http://localhost:8081/localizapets/v1/localizacoes |
 | Cloud | https://location-of-animals-production.up.railway.app/localizapets/v1/localizacoes |
+
+
 ## 5. Endpoints
 
 ### [GET] .../localizacoes
@@ -45,6 +49,9 @@ Para rodar a aplicação é necessario gerar o proprio acesskey nessa url: https
 |-----------|----------------|---------|-------------|-----------|
 |latitude|query|String|Sim|Latitude|
 |longitude|query|String|Sim|Longitude|
-|idColeira|query|String|Sim|Id da coleira do pet|
+|idCollar|query|String|Sim|Id da coleira do pet|
+|data|query|String|Sim|data da consulta|
+|time|query|String|Sim|hora da consulta|
 |correlation-id|header|String|Sim|Id de correlação entre as chamadas|
+
 
