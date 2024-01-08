@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class LocationPetDomainMapper {
 
-    public static LocationPet toDomain(LocationPetDto localizacaoResponse) {
+    public static LocationPet toDomain(LocationPetDto locationPetDto) {
         return LocationPet.builder()
-                .country(localizacaoResponse.getData().get(0).getCountry())
-                .county(localizacaoResponse.getData().get(0).getCounty())
-                .region(localizacaoResponse.getData().get(0).getRegion())
-                .neighbourhood(localizacaoResponse.getData().get(0).getNeighbourhood())
-                .name(localizacaoResponse.getData().get(0).getName())
+                .country(locationPetDto.getData().get(0).getCountry())
+                .county(locationPetDto.getData().get(0).getCounty())
+                .region(locationPetDto.getData().get(0).getRegion())
+                .neighbourhood(locationPetDto.getData().get(0).getNeighbourhood())
+                .name(locationPetDto.getData().get(0).getName())
                 .build();
     }
 }

@@ -13,7 +13,6 @@ import lombok.*;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class LocationModelResponse {
 
-
     private String country;
     private String county;
     private String region;

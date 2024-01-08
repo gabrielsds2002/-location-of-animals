@@ -2,7 +2,6 @@ package br.com.localizapets.entrypoint.mapper;
 
 import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
 import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
-import br.com.localizapets.entrypoint.model.response.LocationModelResponse;
 import br.com.localizapets.usecase.domain.LocationPet;
 
 public class LocationMapper {

@@ -15,5 +15,4 @@ public class ExceptionMessage {
     private String error;
     private String message;
     private String path;
-
 }

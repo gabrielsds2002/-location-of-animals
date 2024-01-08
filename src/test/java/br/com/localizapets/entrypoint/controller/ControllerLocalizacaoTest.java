@@ -2,22 +2,14 @@ package br.com.localizapets.entrypoint.controller;
 
 
 import br.com.localizapets.commons.DataModelResponse;
-import br.com.localizapets.entrypoint.controller.SearchController;
 import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
 import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
-import br.com.localizapets.exceptions.InternalServerError;
 import br.com.localizapets.mocks.LocationMock;
 import br.com.localizapets.usecase.LocationUseCase;
 import br.com.localizapets.usecase.domain.LocationPet;
-import br.com.localizapets.usecase.gateway.LocationApiPet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.http.ResponseEntity;
-
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;

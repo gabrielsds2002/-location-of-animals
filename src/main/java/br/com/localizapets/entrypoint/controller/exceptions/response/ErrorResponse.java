@@ -15,10 +15,8 @@ public class ErrorResponse {
 
     @JsonProperty("code")
     private HttpStatus code;
-
     @JsonProperty("message")
     private String message;
-
     @JsonProperty("description")
     private String description;
 }

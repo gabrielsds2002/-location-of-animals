@@ -1,21 +1,11 @@
 package br.com.localizapets.entrypoint.controller.exceptions;
 
-import br.com.localizapets.commons.DataModelResponse;
 import br.com.localizapets.entrypoint.controller.SearchController;
-import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
-import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
-import br.com.localizapets.mocks.LocationMock;
-import br.com.localizapets.usecase.LocationUseCase;
-import br.com.localizapets.usecase.domain.LocationPet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import static br.com.localizapets.entrypoint.controller.exceptions.enums.UrlErrorEnum.BAD_REQUEST;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 public class HandlerControllerAdviceExceptionTest {
 
 

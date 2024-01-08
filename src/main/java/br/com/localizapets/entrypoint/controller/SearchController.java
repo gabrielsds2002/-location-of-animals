@@ -8,8 +8,6 @@ import br.com.localizapets.usecase.LocationUseCase;
 import lombok.AllArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.LogManager;
-import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +21,6 @@ public class SearchController {
 
     private LocationUseCase locationUseCase;
 
-
     @GetMapping("/localizacoes")
     public ResponseEntity<DataModelResponse<LocationPetResponse>> consultLocation(@Validated LocationModelRequest locationModelRequest) {
         log.info("BEGIN -SearchController.consultLocation");
@@ -33,5 +30,4 @@ public class SearchController {
         log.info("END -SearchController.consultLocation");
         return ResponseEntity.ok(new DataModelResponse<>(locationPetModelResponse));
     }
-
 }

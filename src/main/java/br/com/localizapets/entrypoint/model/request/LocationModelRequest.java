@@ -24,6 +24,4 @@ public class LocationModelRequest {
     private String longitude;
     @NotBlank
     private Long idColeira;
-
-
 }

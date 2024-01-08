@@ -22,5 +22,4 @@ public class ErrorModelResponse {
     private String message;
     private String urlError;
     private List<MessageErrorModelResponse> campos;
-
 }

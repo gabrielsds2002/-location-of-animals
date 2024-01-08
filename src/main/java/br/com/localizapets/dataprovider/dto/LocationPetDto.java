@@ -16,10 +16,6 @@ import java.util.List;
 public class LocationPetDto {
 
     private List<LocationPetResponse> data;
-
-
     private HttpStatus code;
-
-
     private String message;
 }

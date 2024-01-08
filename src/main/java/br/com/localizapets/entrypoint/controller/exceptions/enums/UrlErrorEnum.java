@@ -1,7 +1,6 @@
 package br.com.localizapets.entrypoint.controller.exceptions.enums;
 
 import lombok.Getter;
-
 import java.util.Objects;
 
 @Getter
@@ -9,7 +8,6 @@ public enum UrlErrorEnum {
 
     NOT_FOUND("/register-not-found", 404),
     BAD_REQUEST("/invalid-field-in-request", 400),
-
     UNPROCESSABLE_ENTITY("/invalid-field-in-search", 422),
     INTERNAL_SERVER("/generic-error", 500);
 
@@ -29,7 +27,6 @@ public enum UrlErrorEnum {
                 }
             }
         }
-
         return UrlErrorEnum.INTERNAL_SERVER.getUrl();
     }
 }

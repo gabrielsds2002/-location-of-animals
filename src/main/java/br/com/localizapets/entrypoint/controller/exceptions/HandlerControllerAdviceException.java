@@ -25,52 +25,48 @@ public class HandlerControllerAdviceException extends ResponseEntityExceptionHan
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @ExceptionHandler({ Exception.class, InternalServerError.class })
+    @ExceptionHandler({Exception.class, InternalServerError.class})
     public ResponseEntity<?> handleInternalServer(Exception exception) {
         ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
                 .code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.INTERNAL_SERVER_ERROR.value()))
                 .build();
-        log.info("Internal server error: "+ exception.getMessage());
+        log.info("Internal server error: " + exception.getMessage());
         return new ResponseEntity<>(errorModelResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler({ NotFoundExcepition.class })
+    @ExceptionHandler({NotFoundExcepition.class})
     public ResponseEntity<?> handleNotFound(Exception exception) {
         ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
                 .code(String.valueOf(HttpStatus.NOT_FOUND.value()))
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.NOT_FOUND.value()))
                 .build();
-        log.info("No response data found: "+ exception.getMessage());
+        log.info("No response data found: " + exception.getMessage());
         return new ResponseEntity<>(errorModelResponse, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler({ BadRequestException.class })
+    @ExceptionHandler({BadRequestException.class})
     public ResponseEntity<?> handleBadRequest(Exception exception) {
         ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
                 .code(String.valueOf(HttpStatus.BAD_REQUEST.value()))
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.BAD_REQUEST.value()))
                 .build();
-        log.info("Bad request: "+ exception.getMessage());
+        log.info("Bad request: " + exception.getMessage());
         return new ResponseEntity<>(errorModelResponse, HttpStatus.BAD_REQUEST);
     }
 
-
-    @ExceptionHandler({ UnprocessableException.class })
+    @ExceptionHandler({UnprocessableException.class})
     public ResponseEntity<?> handleunprocessableEntityRequest(Exception exception) {
         ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
                 .code(String.valueOf(HttpStatus.UNPROCESSABLE_ENTITY.value()))
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.UNPROCESSABLE_ENTITY.value()))
                 .build();
-        log.info("Unable to process data: "+ exception.getMessage());
+        log.info("Unable to process data: " + exception.getMessage());
         return new ResponseEntity<>(errorModelResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
-
-
-
 }
 

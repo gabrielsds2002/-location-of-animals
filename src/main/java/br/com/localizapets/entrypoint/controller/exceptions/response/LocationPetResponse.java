@@ -13,15 +13,9 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationPetResponse {
 
-
     private String country;
-
-
     private String county;
-
     private String region;
-
     private String neighbourhood;
-
     private String name;
 }
