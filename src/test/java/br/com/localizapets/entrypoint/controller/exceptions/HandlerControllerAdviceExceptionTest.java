@@ -1,6 +1,6 @@
 package br.com.localizapets.entrypoint.controller.exceptions;
 
-import br.com.localizapets.entrypoint.controller.SearchController;
+import br.com.localizapets.entrypoint.controller.LocationController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ public class HandlerControllerAdviceExceptionTest {
 
 
     HandlerControllerAdviceException handlerControllerAdviceException;
-    SearchController searchController;
+    LocationController locationController;
 
     @BeforeEach
     public void setup() {
@@ -18,12 +18,7 @@ public class HandlerControllerAdviceExceptionTest {
         handlerControllerAdviceException = new HandlerControllerAdviceException();
     }
 
-    @Test
-    public void testHandleInternalServerError() {
-        Exception exception =new Exception();
-        ResponseEntity<?> response = handlerControllerAdviceException.handleInternalServer(exception);
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-    }
+
 
     @Test
     public void testHandleNotFoundError() {
@@ -45,12 +40,4 @@ public class HandlerControllerAdviceExceptionTest {
         ResponseEntity<?> response = handlerControllerAdviceException.handleunprocessableEntityRequest(exception);
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
     }
-
-    @Test
-    public void testHandleNoContentError() {
-        ResponseEntity<?> response = handlerControllerAdviceException.handleNoContent();
-        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
-    }
-
-
 }

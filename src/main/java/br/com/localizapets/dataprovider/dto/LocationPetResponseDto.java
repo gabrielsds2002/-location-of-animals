@@ -1,4 +1,4 @@
-package br.com.localizapets.entrypoint.controller.exceptions.response;
+package br.com.localizapets.dataprovider.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LocationPetResponse {
+public class LocationPetResponseDto {
 
     private String country;
     private String county;

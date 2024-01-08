@@ -7,6 +7,9 @@ import java.util.Objects;
 public enum UrlErrorEnum {
 
     NOT_FOUND("/register-not-found", 404),
+
+
+    UNAUTHORIZED("/user-unathorizad", 401),
     BAD_REQUEST("/invalid-field-in-request", 400),
     UNPROCESSABLE_ENTITY("/invalid-field-in-search", 422),
     INTERNAL_SERVER("/generic-error", 500);

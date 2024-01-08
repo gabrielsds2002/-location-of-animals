@@ -1,7 +1,7 @@
 package br.com.localizapets.mocks;
 
 import br.com.localizapets.dataprovider.dto.LocationPetDto;
-import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
+import br.com.localizapets.dataprovider.dto.LocationPetResponseDto;
 import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
 import br.com.localizapets.usecase.domain.LocationPet;
 import org.springframework.http.HttpStatus;
@@ -27,13 +27,13 @@ public class LocationMock {
     public static LocationPetDto getLocationDtoResponse(){
         LocationPetDto locationPetDto = new LocationPetDto();
         List locationPet = new ArrayList<LocationPetDto>();
-        LocationPetResponse locationPetResponse = new LocationPetResponse();
-        locationPetResponse.setCountry("Brazil");
-        locationPetResponse.setCounty("Sao Paulo");
-        locationPetResponse.setRegion("Sao Paulo");
-        locationPetResponse.setNeighbourhood("Consolação");
-        locationPetResponse.setName("Avenida Barata Ribeiro 339");
-        locationPet.add(locationPetResponse);
+        LocationPetResponseDto locationPetResponseDto = new LocationPetResponseDto();
+        locationPetResponseDto.setCountry("Brazil");
+        locationPetResponseDto.setCounty("Sao Paulo");
+        locationPetResponseDto.setRegion("Sao Paulo");
+        locationPetResponseDto.setNeighbourhood("Consolação");
+        locationPetResponseDto.setName("Avenida Barata Ribeiro 339");
+        locationPet.add(locationPetResponseDto);
         locationPetDto.setData(locationPet);
         return locationPetDto;
     }

@@ -1,6 +1,5 @@
 package br.com.localizapets.dataprovider.dto;
 
-import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +14,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationPetDto {
 
-    private List<LocationPetResponse> data;
+    private List<LocationPetResponseDto> data;
     private HttpStatus code;
     private String message;
 }

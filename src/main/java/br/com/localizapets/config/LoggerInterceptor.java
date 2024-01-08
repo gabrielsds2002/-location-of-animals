@@ -15,7 +15,7 @@ import java.util.UUID;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class LoggerInterceptor implements Filter {
 
-    private static String CORRELATION_ID_NAME = "correlationId";
+    private static final String CORRELATION_ID_NAME = "correlationId";
     private String correlationId;
 
     private String searchCorrelationHeader(ServletRequest request) {

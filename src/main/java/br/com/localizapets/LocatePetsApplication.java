@@ -7,10 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class LocalizaPetsApplication {
+public class LocatePetsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LocalizaPetsApplication.class, args);
+		SpringApplication.run(LocatePetsApplication.class, args);
 	}
 
 }

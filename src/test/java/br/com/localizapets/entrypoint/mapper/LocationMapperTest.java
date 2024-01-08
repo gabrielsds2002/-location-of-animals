@@ -1,7 +1,7 @@
 package br.com.localizapets.entrypoint.mapper;
 
 
-import br.com.localizapets.entrypoint.controller.exceptions.response.LocationPetResponse;
+import br.com.localizapets.dataprovider.dto.LocationPetResponseDto;
 import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
 import br.com.localizapets.mocks.LocationMock;
 import br.com.localizapets.usecase.domain.LocationPet;
@@ -33,7 +33,7 @@ public class LocationMapperTest {
         locationPet.setRegion("Sao Paulo");
         locationPet.setNeighbourhood("Consolação");
         locationPet.setName("Avenida Barata Ribeiro 339");
-        LocationPetResponse response = LocationMapper.mapToModel(locationPet);
+        LocationPetResponseDto response = LocationMapper.mapToModel(locationPet);
         assertEquals(locationMock.getLocationResponse().getCountry(), response.getCountry());
         assertEquals(locationMock.getLocationResponse().getCounty(), response.getCounty());
         assertEquals(locationMock.getLocationResponse().getRegion(), response.getRegion());

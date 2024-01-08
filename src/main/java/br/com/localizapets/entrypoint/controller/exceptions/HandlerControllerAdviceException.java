@@ -13,28 +13,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import static net.logstash.logback.marker.Markers.append;
+
 @ControllerAdvice
 @Slf4j
 public class HandlerControllerAdviceException extends ResponseEntityExceptionHandler {
 
     @Autowired
     private MessageSource messageSource;
-
-    @ExceptionHandler(InternalServerErrorException.class)
-    public ResponseEntity<?> handleNoContent() {
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @ExceptionHandler({Exception.class, InternalServerError.class})
-    public ResponseEntity<?> handleInternalServer(Exception exception) {
-        ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
-                .code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
-                .message(exception.getMessage())
-                .urlError(UrlErrorEnum.searchUrl(HttpStatus.INTERNAL_SERVER_ERROR.value()))
-                .build();
-        log.info("Internal server error: " + exception.getMessage());
-        return new ResponseEntity<>(errorModelResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
 
     @ExceptionHandler({NotFoundExcepition.class})
     public ResponseEntity<?> handleNotFound(Exception exception) {
@@ -43,8 +29,21 @@ public class HandlerControllerAdviceException extends ResponseEntityExceptionHan
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.NOT_FOUND.value()))
                 .build();
-        log.info("No response data found: " + exception.getMessage());
+        log.error(append("PAYLOAD_ERROR_NOT_FOUND", exception),
+                "Error: Result not found ");
         return new ResponseEntity<>(errorModelResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({UnauthorizedExcepition.class})
+    public ResponseEntity<?> handleUnauthorized(Exception exception) {
+        ErrorModelResponse errorModelResponse = ErrorModelResponse.builder()
+                .code(String.valueOf(HttpStatus.UNAUTHORIZED.value()))
+                .message(exception.getMessage())
+                .urlError(UrlErrorEnum.searchUrl(HttpStatus.UNAUTHORIZED.value()))
+                .build();
+        log.error(append("PAYLOAD_ERROR_UNAUTHORIZED", exception),
+                "Error: Unauthorized user ");
+        return new ResponseEntity<>(errorModelResponse, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler({BadRequestException.class})
@@ -54,7 +53,8 @@ public class HandlerControllerAdviceException extends ResponseEntityExceptionHan
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.BAD_REQUEST.value()))
                 .build();
-        log.info("Bad request: " + exception.getMessage());
+        log.error(append("PAYLOAD_ERROR_BAD_REQUEST", exception),
+                "Error: Bad request");
         return new ResponseEntity<>(errorModelResponse, HttpStatus.BAD_REQUEST);
     }
 
@@ -65,7 +65,8 @@ public class HandlerControllerAdviceException extends ResponseEntityExceptionHan
                 .message(exception.getMessage())
                 .urlError(UrlErrorEnum.searchUrl(HttpStatus.UNPROCESSABLE_ENTITY.value()))
                 .build();
-        log.info("Unable to process data: " + exception.getMessage());
+        log.error(append("PAYLOAD_ERROR_UNPROCESSABLE_ENTITY", exception),
+                "Error: Unable to process entity");
         return new ResponseEntity<>(errorModelResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 }

@@ -3,6 +3,7 @@ package br.com.localizapets.dataprovider.implementation;
 import br.com.localizapets.dataprovider.dto.LocationPetDto;
 import br.com.localizapets.dataprovider.feing.ReverseGeocodingClient;
 import br.com.localizapets.dataprovider.mapper.LocationPetDomainMapper;
+import br.com.localizapets.dataprovider.mapper.LocationPetDomainMapperTest;
 import br.com.localizapets.mocks.LocationMock;
 import br.com.localizapets.usecase.domain.LocationPet;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +27,7 @@ public class LocationApiPetImplTest {
     public void setup() {
         locationPetDomainMapper = mock(LocationPetDomainMapper.class);
         reverseGeocodingClient = mock(ReverseGeocodingClient.class);
-        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient, locationPetDomainMapper);
+        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient,locationPetDomainMapper);
     }
 
     @Test

@@ -2,12 +2,15 @@ package br.com.localizapets.dataprovider.mapper;
 
 import br.com.localizapets.dataprovider.dto.LocationPetDto;
 import br.com.localizapets.usecase.domain.LocationPet;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LocationPetDomainMapper {
 
-    public static LocationPet toDomain(LocationPetDto locationPetDto) {
+    public static LocationPet mapToDomain(LocationPetDto locationPetDto) {
         return LocationPet.builder()
                 .country(locationPetDto.getData().get(0).getCountry())
                 .county(locationPetDto.getData().get(0).getCounty())
