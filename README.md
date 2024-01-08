@@ -7,6 +7,8 @@
 
 Aplicação para a consulta de locais de pets desaparecidos.
 
+A aplicação consome a api do positionstack e com isso obtemos a localização apartir da latitude e longitude
+
 | |  |
 |----------|----------|
 | Nome da Api | location-of-animals |
@@ -23,9 +25,13 @@ Aplicação para a consulta de locais de pets desaparecidos.
 | /entrypoint/** | Contem a controller da aplicação e mapeamento dos parametros |
 | /exceptions/** | Tratativas de erros |
 | /usecase/** | Casos de uso da API |
-| /tests/** | are you? |
+| /tests/** | Cenatios de testes unitarios e integrados |
 
 ## 3. O que é preciso para rodar local
+
+Para rodar essa aplicação é necessario ter intalado na sua maquina o java 17 e o maven.
+
+Para rodar a aplicação é necessario gerar o proprio acesskey nessa url: https://positionstack.com/documentation adicionar o valor no application.properties o valor da variavel api.acesskey
 
 ## 4. Rotas
 | Ambiente | Endpoint |
@@ -42,4 +48,3 @@ Aplicação para a consulta de locais de pets desaparecidos.
 |idColeira|query|String|Sim|Id da coleira do pet|
 |correlation-id|header|String|Sim|Id de correlação entre as chamadas|
 
-## 6. Duvidas
