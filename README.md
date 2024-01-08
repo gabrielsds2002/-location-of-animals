@@ -31,7 +31,7 @@ A aplicação consome a api do positionstack e com isso obtemos a localização 
 
 Para rodar essa aplicação é necessario ter intalado na sua maquina o java 17 e o maven.
 
-Para rodar a aplicação é necessario gerar o proprio acesskey nessa url: https://positionstack.com/documentation adicionar o valor no application.properties o valor da variavel api.acesskey
+Para rodar a aplicação é necessario gerar o proprio acesskey nessa url: https://positionstack.com/documentation adicionar o valor no application.properties o valor da variavel api.acesskey.
 
 ## 4. Rotas
 | Ambiente | Endpoint |
