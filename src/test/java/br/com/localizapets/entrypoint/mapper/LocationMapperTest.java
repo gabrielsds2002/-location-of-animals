@@ -19,7 +19,7 @@ public class LocationMapperTest {
         LocationModelRequest request = new LocationModelRequest();
         request.setLatitude("10.0");
         request.setLongitude("20.0");
-        request.setIdColeira(123l);
+        request.setIdCollar(123l);
         LocationPet locationPet = LocationMapper.mapToDomain(request);
         assertEquals(request.getLatitude(), locationPet.getLatitude());
         assertEquals(request.getLongitude(), locationPet.getLongitude());

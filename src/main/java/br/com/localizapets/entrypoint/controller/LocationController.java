@@ -29,17 +29,17 @@ public class LocationController {
 
     public ResponseEntity<DataModelResponse<LocationPetResponseDto>> consultLocation(@Validated LocationModelRequest locationModelRequest) {
         log.info(append("PAYLOAD_REQUEST", locationModelRequest),
-                "Iniciando a consulta da localizacao do pet com os dados da requisicao");
+                "Starting the query of the pet's location with the request data");
         var locationPet = LocationMapper.mapToDomain(locationModelRequest);
-        log.info("Mapeamento de dados realizado e iniciando a integracao com o servico de localizacao");
+        log.info("Data mapping carried out and starting integration with the location service");
         var locationPetResponse = locationUseCase.searchLocation(locationPet);
         log.info(append("PAYLOAD_DOMAIN", locationPetResponse),
-                "Iniciando a montagem odo objeto de saida com os dados encontrado da localizacao do pet");
+                "Starting the assembly of the output object with the data found on the pet's location");
         var locationPetModelResponse = LocationMapper.mapToModel(locationPetResponse);
 
         log.info(append("PAYLOAD_RESPONSE", locationPetModelResponse)
                         .and(append("HTTP_STATUS", HttpStatus.OK.value())),
-                "Finalizando a consulta de localizacao do pet com sucesso");
+                "Completing the pet location query successfully");
 
         return ResponseEntity.ok(new DataModelResponse<>(locationPetModelResponse));
     }

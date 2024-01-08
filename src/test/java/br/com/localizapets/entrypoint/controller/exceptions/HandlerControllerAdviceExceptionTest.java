@@ -40,4 +40,11 @@ public class HandlerControllerAdviceExceptionTest {
         ResponseEntity<?> response = handlerControllerAdviceException.handleunprocessableEntityRequest(exception);
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
     }
+
+    @Test
+    public void testHandleUnauthorizedEntityRequestError() {
+        Exception exception =new Exception();
+        ResponseEntity<?> response = handlerControllerAdviceException.handleUnauthorized(exception);
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+    }
 }

@@ -8,7 +8,6 @@ public enum UrlErrorEnum {
 
     NOT_FOUND("/register-not-found", 404),
 
-
     UNAUTHORIZED("/user-unathorizad", 401),
     BAD_REQUEST("/invalid-field-in-request", 400),
     UNPROCESSABLE_ENTITY("/invalid-field-in-search", 422),

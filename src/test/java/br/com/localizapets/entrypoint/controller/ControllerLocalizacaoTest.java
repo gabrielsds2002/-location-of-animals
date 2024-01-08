@@ -29,7 +29,7 @@ public class ControllerLocalizacaoTest {
     @Test
     public void testConsultLocationSuccess() {
         LocationModelRequest locationModelRequest = new LocationModelRequest();
-        locationModelRequest.setIdColeira(12354l);
+        locationModelRequest.setIdCollar("12354");
         locationModelRequest.setLatitude("-23.5606209");
         locationModelRequest.setLongitude("-46.6564414");
         when(locationUseCase.searchLocation(any(LocationPet.class))).thenReturn(LocationMock.getLocationResponse());

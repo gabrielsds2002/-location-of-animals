@@ -11,7 +11,9 @@ public class LocationPet {
 
     private String latitude;
     private String longitude;
-    private Long idColeira;
+    private String idCollar;
+    private String date;
+    private String time;
     private String country;
     private String county;
     private String region;

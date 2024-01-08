@@ -17,7 +17,7 @@ public class LocationUseCaseImpl implements LocationUseCase{
     @Override
     public LocationPet searchLocation(LocationPet locationModelRequest) {
         log.info(append("PAYLOAD_REQUEST", locationModelRequest),
-                "Iniciando a consulta na API externa positionstack");
+                "Starting the query in the positionstack external API");
         return locationApiPet.searchLocation(locationModelRequest);
     }
 }

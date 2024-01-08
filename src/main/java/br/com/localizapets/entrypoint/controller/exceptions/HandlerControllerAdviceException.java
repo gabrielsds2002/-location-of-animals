@@ -5,8 +5,6 @@ import br.com.localizapets.exceptions.*;
 import br.com.localizapets.entrypoint.controller.exceptions.response.ErrorModelResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,8 +17,6 @@ import static net.logstash.logback.marker.Markers.append;
 @Slf4j
 public class HandlerControllerAdviceException extends ResponseEntityExceptionHandler {
 
-    @Autowired
-    private MessageSource messageSource;
 
     @ExceptionHandler({NotFoundExcepition.class})
     public ResponseEntity<?> handleNotFound(Exception exception) {

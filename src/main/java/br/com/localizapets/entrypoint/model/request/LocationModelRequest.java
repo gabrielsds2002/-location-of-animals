@@ -22,6 +22,7 @@ public class LocationModelRequest {
     private String latitude;
     @NotBlank
     private String longitude;
-    @NotBlank
-    private Long idColeira;
+    private String idCollar;
+    private String date;
+    private String time;
 }

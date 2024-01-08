@@ -4,7 +4,6 @@ import br.com.localizapets.dataprovider.dto.LocationPetDto;
 import br.com.localizapets.usecase.domain.LocationPet;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

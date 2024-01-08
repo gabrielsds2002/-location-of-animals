@@ -59,7 +59,7 @@ public class LocationMock {
         LocationModelRequest locationModelRequest = new LocationModelRequest();
         locationModelRequest.setLatitude("-23.5606209");
         locationModelRequest.setLongitude("-46.6564414");
-        locationModelRequest.setIdColeira(12315l);
+        locationModelRequest.setIdCollar("12315");
         return locationModelRequest;
     }
     public static LocationPetDto getErrorLat(){

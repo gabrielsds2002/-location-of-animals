@@ -27,13 +27,13 @@ public class LocationApiPetImplTest {
     public void setup() {
         locationPetDomainMapper = mock(LocationPetDomainMapper.class);
         reverseGeocodingClient = mock(ReverseGeocodingClient.class);
-        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient,locationPetDomainMapper);
+        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient,"teste");
     }
 
     @Test
     public void testConsultLocationSuccess() {
         LocationPet locationPet = new LocationPet();
-        locationPet.setIdColeira(12354l);
+        locationPet.setIdCollar("12354");
         locationPet.setLatitude("-23.5606209");
         locationPet.setLongitude("-46.6564414");
         when(reverseGeocodingClient.reverseGeocode(anyString(), anyString(), anyInt())).thenReturn(LocationMock.getLocationDtoResponse());

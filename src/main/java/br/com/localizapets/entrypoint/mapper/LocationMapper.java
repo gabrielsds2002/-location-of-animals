@@ -13,7 +13,7 @@ public class LocationMapper {
         return LocationPet.builder()
                 .latitude(locationModelRequest.getLatitude())
                 .longitude(locationModelRequest.getLongitude())
-                .idColeira(locationModelRequest.getIdColeira())
+                .idCollar(locationModelRequest.getIdCollar())
                 .build();
     }
 
