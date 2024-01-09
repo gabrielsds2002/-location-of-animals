@@ -49,9 +49,7 @@ Em caso do retorno da aplicação ser 401 é necessario gerar o proprio acesskey
 |-----------|----------------|---------|-------------|-----------|
 |latitude|query|String|Sim|Latitude|
 |longitude|query|String|Sim|Longitude|
-|idCollar|query|String|Sim|Id da coleira do pet|
-|data|query|String|Sim|data da consulta|
-|time|query|String|Sim|hora da consulta|
+|idCollar|query|String|Não|Id da coleira do pet|
 |correlation-id|header|String|Sim|Id de correlação entre as chamadas|
 
 
