@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com</groupId>
-    <artifactId>localizaPets</artifactId>
+    <artifactId>locationPets</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>localizaPets</name>
-    <description>aplicação de localização de animais</description>
+    <name>locationPets</name>
+    <description>animal location app</description>
     <properties>
         <java.version>17</java.version>
     </properties>
