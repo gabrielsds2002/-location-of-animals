@@ -39,7 +39,7 @@ Em caso do retorno da aplicação ser 401 é necessario gerar o proprio acesskey
 | Ambiente | Endpoint |
 |----------|----------|
 | Local | http://localhost:8081/localizapets/v1/localizacoes |
-| Cloud | https://location-of-animals-production.up.railway.app/localizapets/v1/localizacoes |
+| Cloud | https://location-of-animals-production.up.railway.app/localizapets/v1/localizacoes|
 
 
 ## 5. Endpoints
