@@ -10,7 +10,7 @@ public class HandlerControllerAdviceExceptionTest {
 
 
     HandlerControllerAdviceException handlerControllerAdviceException;
-    LocationController locationController;
+
 
     @BeforeEach
     public void setup() {
