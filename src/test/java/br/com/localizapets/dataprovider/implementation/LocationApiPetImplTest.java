@@ -1,43 +1,49 @@
 package br.com.localizapets.dataprovider.implementation;
 
-import br.com.localizapets.dataprovider.dto.LocationPetDto;
+
 import br.com.localizapets.dataprovider.feing.ReverseGeocodingClient;
-import br.com.localizapets.dataprovider.mapper.LocationPetDomainMapper;
-import br.com.localizapets.dataprovider.mapper.LocationPetDomainMapperTest;
 import br.com.localizapets.mocks.LocationMock;
 import br.com.localizapets.usecase.domain.LocationPet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
-public class LocationApiPetImplTest {
+@ExtendWith(SpringExtension.class)
+class LocationApiPetImplTest {
 
-
-    LocationPetDto locationPetDto;
-    ReverseGeocodingClient reverseGeocodingClient;
-    LocationPetDomainMapper locationPetDomainMapper;
 
     LocationApiPetImpl locationApiPet;
+    @Mock
+    ReverseGeocodingClient reverseGeocodingClient;
 
     @BeforeEach
-    public void setup() {
-        locationPetDomainMapper = mock(LocationPetDomainMapper.class);
-        reverseGeocodingClient = mock(ReverseGeocodingClient.class);
-        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient,"teste");
+    void setup() {
+        locationApiPet = new LocationApiPetImpl(reverseGeocodingClient, "teste");
     }
 
     @Test
-    public void testConsultLocationSuccess() {
+    void testConsultLocationSuccess() {
         LocationPet locationPet = new LocationPet();
         locationPet.setIdCollar("12354");
         locationPet.setLatitude("-23.5606209");
         locationPet.setLongitude("-46.6564414");
-        when(reverseGeocodingClient.reverseGeocode(anyString(), anyString(), anyInt())).thenReturn(LocationMock.getLocationDtoResponse());
+        when(reverseGeocodingClient.reverseGeocode(eq("teste"), eq(locationPet.getLatitude()
+                + "," + locationPet.getLongitude()), any(Integer.class))).thenReturn(LocationMock.getLocationDtoResponse());
         LocationPet response = locationApiPet.searchLocation(locationPet);
-        assertEquals("Brazil", response.getCountry());
+        assertAll(
+                () -> assertEquals("Brazil", response.getCountry()),
+                () -> assertEquals("Sao Paulo", response.getCounty()),
+                () -> assertEquals("Sao Paulo", response.getRegion()),
+                () -> assertEquals("Consolação", response.getNeighbourhood()),
+                () -> assertEquals("Avenida Barata Ribeiro 339", response.getName())
+        );
     }
 }

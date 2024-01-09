@@ -1,0 +1,5 @@
+{
+  "code": "404",
+  "message": "Unauthorized user",
+  "url_error": "/user-unathorized"
+}

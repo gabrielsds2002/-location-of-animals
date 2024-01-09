@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@FeignClient(value = "location",
-        url = "${url.api.reverse}",
-        configuration = FeignConfig.class)
+@FeignClient(value = "location", url = "${url.api.reverse}", configuration = FeignConfig.class)
 public interface ReverseGeocodingClient {
 
-    @GetMapping(value = "${endpoint.api.reverse}", consumes = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/v1/reverse", consumes = APPLICATION_JSON_VALUE)
     LocationPetDto reverseGeocode(@RequestParam("access_key") String accessKey,
                                   @RequestParam("query") String latitude,
                                   @RequestParam("limit") Integer limit);

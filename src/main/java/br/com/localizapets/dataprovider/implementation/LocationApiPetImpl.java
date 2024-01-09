@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import static net.logstash.logback.marker.Markers.append;
 
 
-
 @Service
 @Slf4j
 public class LocationApiPetImpl implements LocationApiPet {
@@ -21,7 +20,7 @@ public class LocationApiPetImpl implements LocationApiPet {
     private final ReverseGeocodingClient reverseGeocodingClient;
     private final String accessKey;
 
-    public static final int LIMIT = 10;
+    public static final int LIMIT = 1;
 
 
     public LocationApiPetImpl(ReverseGeocodingClient reverseGeocodingClient,

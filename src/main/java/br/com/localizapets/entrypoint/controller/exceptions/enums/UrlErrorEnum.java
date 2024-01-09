@@ -1,6 +1,7 @@
 package br.com.localizapets.entrypoint.controller.exceptions.enums;
 
 import lombok.Getter;
+
 import java.util.Objects;
 
 @Getter

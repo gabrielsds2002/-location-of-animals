@@ -1,7 +1,7 @@
 package br.com.localizapets.entrypoint.mapper;
 
-import br.com.localizapets.dataprovider.dto.LocationPetResponseDto;
 import br.com.localizapets.entrypoint.model.request.LocationModelRequest;
+import br.com.localizapets.entrypoint.model.response.LocationModelResponse;
 import br.com.localizapets.usecase.domain.LocationPet;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -17,8 +17,8 @@ public class LocationMapper {
                 .build();
     }
 
-    public static LocationPetResponseDto mapToModel(LocationPet localizacaoResponse) {
-        return LocationPetResponseDto.builder()
+    public static LocationModelResponse mapToModel(LocationPet localizacaoResponse) {
+        return LocationModelResponse.builder()
                 .country(localizacaoResponse.getCountry())
                 .county(localizacaoResponse.getCounty())
                 .region(localizacaoResponse.getRegion())
